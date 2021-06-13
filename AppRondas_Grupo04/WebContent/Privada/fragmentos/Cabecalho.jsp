@@ -36,6 +36,8 @@
 					<li><a href="../Pessoa/PessoaServlet">Pessoas</a>
 					<li><a href="../Locomocao/LocomocaoServlet">Locomoção</a>
 					<li><a href="../Localizacao/LocalizacaoServlet">Localização</a>
+					<li><a href="../Ocorrencia/OcorrenciaServlet">Ocorrências</a>
+					<li><a href="../Ronda/RondaServlet">Rondas</a>
 					<li><a href="#">Mais Cadastros </a>
 						<ul>
 							<li><a href="#">Em Breve</a></li>

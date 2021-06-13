@@ -6,15 +6,15 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Localizações | AppMonitoramento</title>
+	<title>Ocorrências | AppMonitoramento</title>
 </head>
 <body>
 	<jsp:include page="../fragmentos/Cabecalho.jsp"></jsp:include>
 
-	<form action="LocalizacaoServlet" method="post">
+	<form action="OcorrenciaServlet" method="post">
 		<fieldset>
 			<label><h3 class="titulo">INSIRA AS INFORMAÇÕES DE
-					LOCALIZAÇÕES:</h3></label>
+					OCORRÊNCIAS:</h3></label>
 
 			<div class="row">
 				<div class="col">
@@ -34,14 +34,36 @@
 			<br>
 			<div class="row">
 				<div class="col">
+					<label>Título:</label> <input type="text" class="form-control" id="titulo" name="titulo"
+					value="${o.titulo}" placeholder="Título">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<label>Descrição:</label> <input type="text" class="form-control" id="descricao" name="descricao"
+					value="${o.descricao}" placeholder="Descrição">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
 					<label>Latitude:</label> <input type="number" class="form-control" id="lat" name="lat"
 					value="${o.lat}" placeholder="Latitude">
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col">
 					<label>Longitude:</label> <input type="number" class="form-control" id="lon" name="lon"
 					value="${o.lon}" placeholder="Longitude">
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<label>Foto:</label> <input type="text" class="form-control" id="foto" name="foto"
+					value="${o.foto}" placeholder="Foto">
 				</div>
 			</div>
 			<br>

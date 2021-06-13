@@ -20,7 +20,7 @@ public class Ronda implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RondaId")
 	@SequenceGenerator(name = "RondaId", sequenceName = "RondaId", allocationSize = 1)
-	private Integer id;
+	private Long id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
@@ -30,28 +30,43 @@ public class Ronda implements Serializable {
 	@Column(nullable = true)
 	private Date dataHoraFim;
 	
+	@Column(nullable = false)
 	private Float latUltima;
+	
+	@Column(nullable = true)
 	private Float lonUltima;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataHoraUltima;
 	
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Locomocao locomocao;
 	
 	@ManyToMany
 	private List<Pessoa> vigilantes;
 	
 	private static final long serialVersionUID = 1L;
-
+	
+	public Ronda(Long id, Date dataHoraInicio, Date dataHoraFim, Float latUltima, Float lonUltima, Date dataHoraUltima,
+			Locomocao locomocao, List<Pessoa> vigilantes) {
+		super();
+		this.id = id;
+		this.dataHoraInicio = dataHoraInicio;
+		this.dataHoraFim = dataHoraFim;
+		this.latUltima = latUltima;
+		this.lonUltima = lonUltima;
+		this.dataHoraUltima = dataHoraUltima;
+		this.locomocao = locomocao;
+		this.vigilantes = vigilantes;
+	}
 	public Ronda() {
 		super();
 	}   
-	public Integer getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}   
 	public Date getDataHoraInicio() {

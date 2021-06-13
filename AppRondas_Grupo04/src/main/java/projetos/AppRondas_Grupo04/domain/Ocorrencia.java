@@ -1,7 +1,8 @@
 package projetos.AppRondas_Grupo04.domain;
 
 import java.io.Serializable;
-import java.lang.Long;
+import java.lang.Float;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
 
@@ -30,22 +31,23 @@ public class Ocorrencia implements Serializable {
 	@Column(length = 200, nullable = false)
 	private String descricao;
 	
-	@Column(length = 40)
+	@Column(length = 40, nullable = false)
 	private Long lat;
 	
-	@Column(length = 40)
+	@Column(length = 40, nullable = false)
 	private Long lon;
 	
 	@Column(length = 100)
 	private String foto;
 	
-	@ManyToOne
+	@ManyToOne(optional =  false)
 	private Ronda ronda;
 	private static final long serialVersionUID = 1L;
 
 	public Ocorrencia() {
 		super();
 	}   
+	
 
 	public Ocorrencia(Long id, Date dataHora, String titulo, String descricao, Long lat, Long lon, String foto,
 			Ronda ronda) {

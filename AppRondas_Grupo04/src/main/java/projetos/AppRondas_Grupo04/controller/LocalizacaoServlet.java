@@ -97,6 +97,7 @@ public class LocalizacaoServlet extends HttpServlet {
 		private void gravar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			EntityManager em = JpaUtil.getEntityManager();
 			try {
+				em = JpaUtil.getEntityManager();
 				em.getTransaction().begin();
 				Localizacao o = inicializarObjeto(request, em);
 				em.merge(o);
