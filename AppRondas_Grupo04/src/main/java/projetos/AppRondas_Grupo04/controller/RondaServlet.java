@@ -57,7 +57,7 @@ public class RondaServlet extends HttpServlet {
 	}
 
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("excluir"));
+		Long id = Long.parseLong(request.getParameter("excluir"));
 		EntityManager em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
 		em.remove(em.find(Ronda.class, id));
@@ -67,21 +67,21 @@ public class RondaServlet extends HttpServlet {
 	}
 
 	private void alterar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("alterar"));
+		Long id = Long.parseLong(request.getParameter("alterar"));
 		EntityManager em = JpaUtil.getEntityManager();
 		Ronda o = em.find(Ronda.class, id);
-		List<Locomocao> rondas = em.createQuery("from Locomocao").getResultList();
+		List<Locomocao> locomocoes = em.createQuery("from Locomocao").getResultList();
 		em.close();
 		request.setAttribute("o", o);
-		request.setAttribute("rondas", rondas);
+		request.setAttribute("locomocoes", locomocoes);
 		request.getRequestDispatcher("RondaForm.jsp").forward(request, response);
 	}
 
 	private void incluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = JpaUtil.getEntityManager();
-		List<Locomocao> rondas = em.createQuery("from Locomocao").getResultList();
+		List<Locomocao> locomocoes = em.createQuery("from Locomocao").getResultList();
 		em.close();
-		request.setAttribute("rondas", rondas);
+		request.setAttribute("locomocoes", locomocoes);
 		request.getRequestDispatcher("RondaForm.jsp").forward(request, response);
 	}
 
@@ -89,7 +89,7 @@ public class RondaServlet extends HttpServlet {
 		EntityManager em = JpaUtil.getEntityManager();
 		List<Ronda> lista = em.createQuery("from Ronda").getResultList();
 		em.close();
-		request.setAttribute("ronda", lista);
+		request.setAttribute("lista", lista);
 		request.getRequestDispatcher("RondaList.jsp").forward(request, response);
 	}
 

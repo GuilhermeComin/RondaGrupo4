@@ -66,8 +66,8 @@
 			<br>
 			<div class="row">
 				<select name="locomocao" id="locomocao">
-					<c:forEach items="${rondas}" var="r" varStatus="index">
-						<option value="${r.id}">${r.id}- ${r.locomocao.descricao}
+					<c:forEach items="${locomocoes}" var="r" varStatus="index">
+						<option value="${r.id}">${r.id}- ${r.descricao}
 					</c:forEach>
 				</select>
 			</div>

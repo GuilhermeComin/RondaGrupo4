@@ -31,7 +31,7 @@
 				<th>Alterar</th>
 				<th>Excluir</th>
 			</tr>
-			<c:forEach items="${ronda}" var="o" varStatus="index">
+			<c:forEach items="${lista}" var="o" varStatus="index">
 				<tr>
 					<td>${o.id}</td>
 					<td><fmt:formatDate value="${o.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/></td>
@@ -39,8 +39,8 @@
 					<td>${o.latUltima}</td>
 					<td>${o.lonUltima}</td>
 					<td><fmt:formatDate value="${o.dataHoraUltima}" pattern="dd/MM/yyyy HH:mm"/></td>
-				 	<td>${o.ronda.id} - ${o.ronda.locomocao.descricao} - <fmt:formatDate value="${o.ronda.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/> </td>
-				    
+				 	<td>${o.id} - <fmt:formatDate value="${o.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/> </td>
+				    <td> </td>
 					<td><button name="alterar" value="${o.id}"> <i class="fas fa-hammer"></i> Alterar </button></td>
 					<td><button name="excluir" value="${o.id}"> <i class="fas fa-trash"></i> Excluir </button></td>
 				</tr>

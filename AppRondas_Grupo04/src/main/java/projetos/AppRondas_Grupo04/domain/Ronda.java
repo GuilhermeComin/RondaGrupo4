@@ -61,62 +61,57 @@ public class Ronda implements Serializable {
 	}
 	public Ronda() {
 		super();
-	}   
-	public Long getId() {
-		return this.id;
 	}
-
+	public Long getId() {
+		return id;
+	}
 	public void setId(Long id) {
 		this.id = id;
-	}   
-	public Date getDataHoraInicio() {
-		return this.dataHoraInicio;
 	}
-
+	public Date getDataHoraInicio() {
+		return dataHoraInicio;
+	}
 	public void setDataHoraInicio(Date dataHoraInicio) {
 		this.dataHoraInicio = dataHoraInicio;
-	}   
-	public Date getDataHoraFim() {
-		return this.dataHoraFim;
 	}
-
+	public Date getDataHoraFim() {
+		return dataHoraFim;
+	}
 	public void setDataHoraFim(Date dataHoraFim) {
 		this.dataHoraFim = dataHoraFim;
-	}   
-	public Float getLatUtima() {
-		return this.latUltima;
 	}
-
-	public void setLatUtima(Float latUtima) {
-		this.latUltima = latUtima;
-	}   
+	public Float getLatUltima() {
+		return latUltima;
+	}
+	public void setLatUltima(Float latUltima) {
+		this.latUltima = latUltima;
+	}
 	public Float getLonUltima() {
-		return this.lonUltima;
+		return lonUltima;
 	}
-
 	public void setLonUltima(Float lonUltima) {
 		this.lonUltima = lonUltima;
-	}   
-	public Date getDataHoraUltima() {
-		return this.dataHoraUltima;
 	}
-
+	public Date getDataHoraUltima() {
+		return dataHoraUltima;
+	}
 	public void setDataHoraUltima(Date dataHoraUltima) {
 		this.dataHoraUltima = dataHoraUltima;
-	}   
-	public Locomocao getLocomocao() {
-		return this.locomocao;
 	}
-
+	public Locomocao getLocomocao() {
+		return locomocao;
+	}
 	public void setLocomocao(Locomocao locomocao) {
 		this.locomocao = locomocao;
-	}   
-	public List<Pessoa> getVigilantes() {
-		return this.vigilantes;
 	}
-
+	public List<Pessoa> getVigilantes() {
+		return vigilantes;
+	}
 	public void setVigilantes(List<Pessoa> vigilantes) {
 		this.vigilantes = vigilantes;
 	}
-   
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}   
+	
 }
