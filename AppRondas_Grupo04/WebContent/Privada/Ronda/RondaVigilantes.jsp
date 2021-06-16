@@ -24,10 +24,10 @@
 			</c:forEach>
 		</select>
 	</div>
-	<button type="submit" name="incluirVigilante"><i class="fas fa-plus"></i>Incluir Vigilantes</button>
-	<button type="submit">Voltar</button>
+	<button class="botao" type="submit" name="incluirVigilante"><i class="fas fa-plus"></i> Incluir Vigilantes</button>
+	<button class="botao" type="submit">Voltar</button><br><br>
 	
-	<table border="1" class="table table-hover table-condensed">
+	<table border="1" class="table table-hover table-light">
 		<thead>
 			<tr>
 				<th>ID</th>
