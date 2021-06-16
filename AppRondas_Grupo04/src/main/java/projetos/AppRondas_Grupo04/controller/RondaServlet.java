@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import projetos.AppRondas_Grupo04.domain.Pessoa;
 import projetos.AppRondas_Grupo04.jpa.JpaUtil;
 import projetos.AppRondas_Grupo04.domain.Localizacao;
 import projetos.AppRondas_Grupo04.domain.Locomocao;
@@ -47,10 +48,98 @@ public class RondaServlet extends HttpServlet {
 				excluir(request, response);
 			} else if (request.getParameter("cancelar") != null) {
 				cancelar(request, response);
+			} else if(request.getParameter("vigilantes") != null) {
+				vigilantes(request, response);
+			} else if(request.getParameter("incluirVigilante") != null) {
+				incluirVigilante(request, response);
+			} else if(request.getParameter("excluirVigilante") != null) {
+				excluirVigilante(request, response);
 			} else {
 				listar(request, response);
 			}
 		}
+    
+    private void vigilantes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	Long idRonda = Long.parseLong(request.getParameter("vigilantes"));
+		
+		EntityManager em = JpaUtil.getEntityManager();
+		em.getTransaction().begin();
+		
+		@SuppressWarnings("unchecked")
+		List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+		Ronda r = em.find(Ronda.class, idRonda);
+		em.close();
+		
+		request.setAttribute("r", r);
+		request.setAttribute("pessoas", pessoas);
+		request.getRequestDispatcher("RondaVigilantes.jsp").forward(request, response);
+	}
+	
+	private void incluirVigilante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+		Long idRonda = Long.parseLong(request.getParameter("idRonda"));
+		Integer idPessoa = Integer.parseInt(request.getParameter("vigilante"));
+		
+		EntityManager em = JpaUtil.getEntityManager();
+		try {
+			em.getTransaction().begin();
+			// A ronda onde deve ser incluído
+			Ronda r = em.find(Ronda.class, idRonda);
+			// O vigilante a ser incluído na ronda
+			Pessoa p = em.find(Pessoa.class, idPessoa);
+			
+			// Adicionar o vigilante na ronda
+			r.getVigilantes().add(p);
+			
+			// Vai salvar em cascata os vigilantes adicionados (cascade=ALL na classe)
+			em.merge(r);
+			em.getTransaction().commit();
+			
+			@SuppressWarnings("unchecked")
+			List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+			em.close();
+			
+			request.setAttribute("r", r);
+			request.setAttribute("pessoas", pessoas);
+			request.getRequestDispatcher("RondaVigilantes.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+	
+	private void excluirVigilante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+		Long idRonda = Long.parseLong(request.getParameter("idRonda"));
+		Integer idPessoa = Integer.parseInt(request.getParameter("excluirVigilante"));
+		
+		EntityManager em = JpaUtil.getEntityManager();
+		try {
+			em.getTransaction().begin();
+			// A ronda onde deve ser excluído
+			Ronda r = em.find(Ronda.class, idRonda);
+			// O vigilante a ser excluído na ronda
+			Pessoa p = em.find(Pessoa.class, idPessoa);
+			
+			// Remove o vigilante na ronda
+			r.getVigilantes().remove(p);
+			
+			// Vai salvar em cascata os vigilantes removidos (cascade=ALL na classe)
+			em.merge(r);
+			em.getTransaction().commit();
+			
+			@SuppressWarnings("unchecked")
+			List<Pessoa> pessoas = em.createQuery("from Pessoa").getResultList();
+			em.close();
+			
+			request.setAttribute("r", r);
+			request.setAttribute("pessoas", pessoas);
+			request.getRequestDispatcher("RondaVigilantes.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
 		
     private void cancelar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		listar(request, response);

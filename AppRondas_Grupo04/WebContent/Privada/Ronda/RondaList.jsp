@@ -40,7 +40,7 @@
 					<td>${o.lonUltima}</td>
 					<td><fmt:formatDate value="${o.dataHoraUltima}" pattern="dd/MM/yyyy HH:mm"/></td>
 				 	<td>${o.id} - <fmt:formatDate value="${o.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/> </td>
-				    <td> </td>
+				    <td><button name="vigilantes" value="${o.id}">Vigilantes</button></td>
 					<td><button name="alterar" value="${o.id}"> <i class="fas fa-hammer"></i> Alterar </button></td>
 					<td><button name="excluir" value="${o.id}"> <i class="fas fa-trash"></i> Excluir </button></td>
 				</tr>
