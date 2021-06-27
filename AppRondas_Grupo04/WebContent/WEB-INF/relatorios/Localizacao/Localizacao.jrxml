@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Localizacao" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="270a6510-3414-4656-9342-36f6b9e7f696">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bG9jYWxpemFjYW8gQVMgLDc4LDExMSw1NmFlNzY2Yy1lNDk5LTQxZjQtOTE2NS0yMWQ5NTUxNzU1
+NmM7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AppRondas_Grupo04"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT id,
+	datahora,
+	lat,
+	lon,
+	ronda_id
+FROM localizacao]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="localizacao"/>
+	</field>
+	<field name="datahora" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="datahora"/>
+		<property name="com.jaspersoft.studio.field.label" value="datahora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="localizacao"/>
+	</field>
+	<field name="lat" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="lat"/>
+		<property name="com.jaspersoft.studio.field.label" value="lat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="localizacao"/>
+	</field>
+	<field name="lon" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="lon"/>
+		<property name="com.jaspersoft.studio.field.label" value="lon"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="localizacao"/>
+	</field>
+	<field name="ronda_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ronda_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="ronda_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="localizacao"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="88796d59-cd8c-43c1-853f-dd6acfa88258"/>
+				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="bcf29663-c4b8-483e-a197-e5f6920fd2a2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Localizações]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="46" width="200" height="22" uuid="c089ef81-84c2-4243-a7e9-0e0a8992e71a"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[App Rondas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="9d02e302-57b8-432b-babd-efb2418804ba"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="50" height="15" uuid="ad86d82c-2caa-497f-a596-1ad2dfe95381">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9a46d7c-e6fb-4d26-b33d-d4678857d608"/>
+				</reportElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="50" y="19" width="170" height="15" uuid="42bb33e2-9a4e-4564-9a01-521daae83bf4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f5bf822a-15b1-4e79-849a-dcddcfb8d391"/>
+				</reportElement>
+				<text><![CDATA[Data e Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="220" y="18" width="80" height="15" uuid="50e77ece-1416-4235-a079-361b929a07bf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="83f1174a-5ea7-490b-8ba4-e3c72d68f688"/>
+				</reportElement>
+				<text><![CDATA[Latitude]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="300" y="19" width="80" height="15" uuid="b5f2759e-3c4e-4137-8cb3-8b7bfe45c407">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ec221e0-1b06-4b8e-8da5-d82cad8c5fdd"/>
+				</reportElement>
+				<text><![CDATA[Longitude]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="380" y="19" width="175" height="15" uuid="3995d2f0-a00b-4017-b37f-57d33e6ee4c1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="158b626c-8d76-47d3-924b-eb9734deb7d1"/>
+				</reportElement>
+				<text><![CDATA[Ronda da Localização]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="e333df44-9887-45d8-a569-1c4607976a27"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="50" height="15" uuid="b01fd2f3-8881-4695-9452-59267c34fb47">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b9a46d7c-e6fb-4d26-b33d-d4678857d608"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="50" y="0" width="170" height="15" uuid="040c1711-6c8a-489e-8b00-9799a890b5f1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f5bf822a-15b1-4e79-849a-dcddcfb8d391"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{datahora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="220" y="-1" width="80" height="15" uuid="d7545c97-f589-48f6-806c-4058a6a534fa">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="83f1174a-5ea7-490b-8ba4-e3c72d68f688"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="300" y="0" width="80" height="15" uuid="291d7289-dac5-4b0b-8f74-98ea208a67df">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ec221e0-1b06-4b8e-8da5-d82cad8c5fdd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{lon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="380" y="0" width="175" height="15" uuid="5e0b5a70-13f8-42b2-a7f2-e739aa5954d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="158b626c-8d76-47d3-924b-eb9734deb7d1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ronda_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f4ea54fc-a4b9-4971-acd1-638c2e274a20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="433509ef-2a34-4797-9cd1-684511ae022d"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="27402784-6be1-4e60-b9c7-c3664ea17454"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="e16da2cc-f2dd-4b0a-a299-981148326ee6"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
