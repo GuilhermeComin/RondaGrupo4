@@ -32,12 +32,12 @@
 			<li><a href="../Home/Home.jsp">Home</a></li>
 			<li><a href="#">Cadastros</a>
 				<ul>
-					<li><a href="../Usuario/UsuarioServlet">Usuários</a>
-					<li><a href="../Pessoa/PessoaServlet">Pessoas</a>
+					<li><a href="../Usuario/UsuarioServlet">Usuário</a>
+					<li><a href="../Pessoa/PessoaServlet">Pessoa</a>
 					<li><a href="../Locomocao/LocomocaoServlet">Locomoção</a>
 					<li><a href="../Localizacao/LocalizacaoServlet">Localização</a>
-					<li><a href="../Ocorrencia/OcorrenciaServlet">Ocorrências</a>
-					<li><a href="../Ronda/RondaServlet">Rondas</a>
+					<li><a href="../Ocorrencia/OcorrenciaServlet">Ocorrência</a>
+					<li><a href="../Ronda/RondaServlet">Ronda</a>
 					<li><a href="#">Mais Cadastros </a>
 						<ul>
 							<li><a href="#">Em Breve</a></li>
@@ -45,7 +45,20 @@
 							<li><a href="#">Em breve</a></li>
 						</ul></li>
 				</ul></li>
-			<li><a href="../SairServlet">Sair</a>	
+
+			<li><a href="#">Relatórios</a>
+				<ul>
+					<li><a href="../Relatorios/RelUsuarioServlet" target="_blank">Usuários</a>
+					<li><a href="../Relatorios/RelPessoaServlet" target="_blank">Pessoas</a>
+					<li><a href="../Relatorios/RelLocomocaoServlet" target="_blank">Locomoções</a>
+					<li><a href="../Relatorios/RelLocalizacaoServlet" target="_blank">Localizações</a>
+					<li><a href="../Relatorios/RelOcorrenciaServlet" target="_blank">Ocorrências</a>
+					<li><a href="../Relatorios/RelRondaServlet" target="_blank">Rondas</a>
+				</ul>
+			</li>
+
+
+			<li><a href="../SairServlet">Sair</a>
 		</ul>
 	</nav>
 	<!-- jQuery -->

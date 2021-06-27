@@ -158,7 +158,7 @@ FROM pessoa]]>
 				<textElement>
 					<font size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Relaório de Pessoas]]></text>
+				<text><![CDATA[Relatório de Pessoas]]></text>
 			</staticText>
 		</band>
 	</pageFooter>
