@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.iamvegan.multipartrequest.HttpServletMultipartRequest;
 import projetos.AppRondas_Grupo04.jpa.JpaUtil;
+import projetos.AppRondas_Grupo04.uteis.Upload;
 import projetos.AppRondas_Grupo04.domain.Localizacao;
 import projetos.AppRondas_Grupo04.domain.Ocorrencia;
 import projetos.AppRondas_Grupo04.domain.Ronda;
@@ -36,6 +38,14 @@ public class OcorrenciaServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    	request = new HttpServletMultipartRequest(
+    			request,
+    			HttpServletMultipartRequest.MAX_CONTENT_LENGTH,
+    			HttpServletMultipartRequest.SAVE_TO_TMPDIR,
+    			HttpServletMultipartRequest.IGNORE_ON_MAX_LENGTH,
+    			HttpServletMultipartRequest.DEFAULT_ENCODING);
+
+    	
 		if (request.getParameter("gravar") != null) {
 	           gravar(request, response);
 			} else if (request.getParameter("incluir") != null) {
@@ -46,7 +56,11 @@ public class OcorrenciaServlet extends HttpServlet {
 				excluir(request, response);
 			} else if (request.getParameter("cancelar") != null) {
 				cancelar(request, response);
-			} else {
+			} else if (request.getParameter("alterarFoto") != null) {
+				alterarFoto(request, response);
+			} else if (request.getParameter("gravarFoto") != null) {
+				gravarFoto(request, response);
+    		} else {
 				listar(request, response);
 			}
 		}
@@ -90,6 +104,42 @@ public class OcorrenciaServlet extends HttpServlet {
 		em.close();
 		request.setAttribute("lista", lista);
 		request.getRequestDispatcher("OcorrenciaList.jsp").forward(request, response);
+	}
+	
+	private void alterarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer id = Integer.parseInt(request.getParameter("alterarFoto"));
+		EntityManager em = JpaUtil.getEntityManager();
+		Ocorrencia o = em.find(Ocorrencia.class, id);
+		List<Ronda> rondas = em.createQuery("from Ocorrencia").getResultList();
+		em.close();
+		request.setAttribute("o", o);
+		request.setAttribute("rondas", rondas);
+		request.getRequestDispatcher("OcorrenciaFoto.jsp").forward(request, response);
+	}
+	
+	private void gravarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EntityManager em = JpaUtil.getEntityManager();
+		try {
+			em = JpaUtil.getEntityManager();
+			em.getTransaction().begin();
+			Ocorrencia o = em.find(Ocorrencia.class, Integer.parseInt(request.getParameter("id")));
+			
+			if (request.getParameter("foto") != null) {
+				String nomeArquivo = "foto"+o.getId()+".jpg";
+				// pegar o caminho de contexto de execução da aplicação para a pasta uploads
+				String caminho = getServletConfig().getServletContext().getRealPath("/") + "Privada/uploads";
+				// copiar arquivo de upload para a pasta
+				Upload.copiarArquivo((HttpServletMultipartRequest) request, "foto", caminho, nomeArquivo);
+				}
+			em.merge(o);
+			em.getTransaction().commit();	
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			em.close();
+			listar(request, response);
+		}
 	}
 
 	private void gravar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

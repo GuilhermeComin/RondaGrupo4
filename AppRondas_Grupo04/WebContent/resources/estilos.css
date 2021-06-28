@@ -30,3 +30,7 @@ body {
 	align-items: center;
 	background-color: white;
 }
+
+#inserirFoto {
+	font-size: 8px;
+}
