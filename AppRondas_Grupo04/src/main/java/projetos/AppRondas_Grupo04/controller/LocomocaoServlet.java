@@ -60,7 +60,7 @@ public class LocomocaoServlet extends HttpServlet {
 	}
 
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long id = Long.parseLong(request.getParameter("excluir"));
+		Integer id = Integer.parseInt(request.getParameter("excluir"));
 		EntityManager em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
 		em.remove(em.find(Locomocao.class, id));
@@ -70,7 +70,7 @@ public class LocomocaoServlet extends HttpServlet {
 	}
 
 	private void alterar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long id = Long.parseLong(request.getParameter("alterar"));
+		Integer id = Integer.parseInt(request.getParameter("alterar"));
 		EntityManager em = JpaUtil.getEntityManager();
 		Locomocao o = em.find(Locomocao.class, id);
 		em.close();

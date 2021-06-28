@@ -65,7 +65,8 @@
 			</div>
 			<br>
 			<div class="row">
-				<select name="locomocao" id="locomocao">
+				<select required name="locomocao" id="locomocao" class="custom-select">
+					<option value="" disabled selected > Selecione o meio de locomoção
 					<c:forEach items="${locomocoes}" var="r" varStatus="index">
 						<option value="${r.id}">${r.id}- ${r.descricao}
 					</c:forEach>

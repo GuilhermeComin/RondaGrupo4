@@ -17,7 +17,7 @@ public class Localizacao implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LocalizacaoId")
 	@SequenceGenerator(name = "LocalizacaoId", sequenceName = "LocalizacaoId", allocationSize = 1)	
-	private Long id;
+	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(length = 40)
@@ -36,7 +36,7 @@ public class Localizacao implements Serializable {
 	public Localizacao() {
 		super();
 	}  
-	public Localizacao(Long id, Date dataHora, Float lat, Float lon, Ronda ronda) {
+	public Localizacao(Integer id, Date dataHora, Float lat, Float lon, Ronda ronda) {
 		super();
 		this.id = id;
 		this.dataHora = dataHora;
@@ -44,10 +44,10 @@ public class Localizacao implements Serializable {
 		this.lon = lon;
 		this.ronda = ronda;
 	}
-	public Long getId() {
+	public Integer getId() {
 		return this.id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}   
 	public Date getDataHora() {

@@ -119,7 +119,7 @@ public class LocalizacaoServlet extends HttpServlet {
 			Ronda ronda = em.find(Ronda.class, Integer.parseInt(request.getParameter("ronda")) );
 			
 			Localizacao o = new Localizacao(
-					request.getParameter("id").equals("") ? null : Long.parseLong(request.getParameter("id")), 
+					request.getParameter("id").equals("") ? null : Integer.parseInt(request.getParameter("id")), 
 					sdf.parse(request.getParameter("dataHora").replaceAll("T", " ")),
 					Float.parseFloat(request.getParameter("lat")),
 					Float.parseFloat(request.getParameter("lon")),

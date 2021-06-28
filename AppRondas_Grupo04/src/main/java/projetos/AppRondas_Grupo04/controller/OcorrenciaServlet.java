@@ -117,7 +117,7 @@ public class OcorrenciaServlet extends HttpServlet {
 			Ronda ronda = em.find(Ronda.class, Integer.parseInt(request.getParameter("ronda")) );
 			
 			Ocorrencia o = new Ocorrencia(
-					request.getParameter("id").equals("") ? null : Long.parseLong(request.getParameter("id")), 
+					request.getParameter("id").equals("") ? null : Integer.parseInt(request.getParameter("id")), 
 					sdf.parse(request.getParameter("dataHora").replaceAll("T", " ")),
 					request.getParameter("titulo"),
 					request.getParameter("descricao"),

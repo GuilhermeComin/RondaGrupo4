@@ -46,7 +46,8 @@
 			</div>
 			<br>
 			<div class="row">
-				<select name="ronda" id="ronda">
+				<select name="ronda" id="ronda" class="custom-select">
+					<option value="" disabled selected > Selecione a ronda
 					<c:forEach items="${rondas}" var="r" varStatus="index">
 						<option value="${r.id}">${r.id}- ${r.locomocao.descricao}
 							-

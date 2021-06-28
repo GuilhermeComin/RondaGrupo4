@@ -61,14 +61,8 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col">
-					<label>Foto:</label> <input type="text" class="form-control" id="foto" name="foto"
-					value="${o.foto}" placeholder="Foto">
-				</div>
-			</div>
-			<br>
-			<div class="row">
-				<select name="ronda" id="ronda">
+				<select name="ronda" id="ronda" class="custom-select">
+					<option value="" disabled selected > Selecione a ronda
 					<c:forEach items="${rondas}" var="r" varStatus="index">
 						<option value="${r.id}">${r.id}- ${r.locomocao.descricao}
 							-

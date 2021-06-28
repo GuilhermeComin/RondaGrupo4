@@ -60,7 +60,7 @@ public class RondaServlet extends HttpServlet {
 		}
     
     private void vigilantes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Long idRonda = Long.parseLong(request.getParameter("vigilantes"));
+    	Integer idRonda = Integer.parseInt(request.getParameter("vigilantes"));
 		
 		EntityManager em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
@@ -76,7 +76,7 @@ public class RondaServlet extends HttpServlet {
 	}
 	
 	private void incluirVigilante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
-		Long idRonda = Long.parseLong(request.getParameter("idRonda"));
+		Integer idRonda = Integer.parseInt(request.getParameter("idRonda"));
 		Integer idPessoa = Integer.parseInt(request.getParameter("vigilante"));
 		
 		EntityManager em = JpaUtil.getEntityManager();
@@ -109,7 +109,7 @@ public class RondaServlet extends HttpServlet {
 	}
 	
 	private void excluirVigilante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
-		Long idRonda = Long.parseLong(request.getParameter("idRonda"));
+		Integer idRonda = Integer.parseInt(request.getParameter("idRonda"));
 		Integer idPessoa = Integer.parseInt(request.getParameter("excluirVigilante"));
 		
 		EntityManager em = JpaUtil.getEntityManager();
@@ -146,7 +146,7 @@ public class RondaServlet extends HttpServlet {
 	}
 
 	private void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long id = Long.parseLong(request.getParameter("excluir"));
+		Integer id = Integer.parseInt(request.getParameter("excluir"));
 		EntityManager em = JpaUtil.getEntityManager();
 		em.getTransaction().begin();
 		em.remove(em.find(Ronda.class, id));
@@ -156,7 +156,7 @@ public class RondaServlet extends HttpServlet {
 	}
 
 	private void alterar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long id = Long.parseLong(request.getParameter("alterar"));
+		Integer id = Integer.parseInt(request.getParameter("alterar"));
 		EntityManager em = JpaUtil.getEntityManager();
 		Ronda o = em.find(Ronda.class, id);
 		List<Locomocao> locomocoes = em.createQuery("from Locomocao").getResultList();
@@ -206,7 +206,7 @@ public class RondaServlet extends HttpServlet {
 			Locomocao locomocao = em.find(Locomocao.class, Integer.parseInt(request.getParameter("locomocao")) );
 			
 			Ronda o = new Ronda(
-					request.getParameter("id").equals("") ? null : Long.parseLong(request.getParameter("id")), 
+					request.getParameter("id").equals("") ? null : Integer.parseInt(request.getParameter("id")), 
 					sdf.parse(request.getParameter("dataHoraInicio").replaceAll("T", " ")),
 					sdf.parse(request.getParameter("dataHoraFim").replaceAll("T", " ")),
 					Float.parseFloat(request.getParameter("latUltima")),

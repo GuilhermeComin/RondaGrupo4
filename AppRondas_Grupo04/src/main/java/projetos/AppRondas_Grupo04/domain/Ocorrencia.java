@@ -19,7 +19,7 @@ public class Ocorrencia implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OcorrenciaId")
 	@SequenceGenerator(name = "OcorrenciaId", sequenceName = "OcorrenciaId", allocationSize = 1)	
-	private Long id;
+	private Integer id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
@@ -49,7 +49,7 @@ public class Ocorrencia implements Serializable {
 	}   
 	
 
-	public Ocorrencia(Long id, Date dataHora, String titulo, String descricao, Long lat, Long lon, String foto,
+	public Ocorrencia(Integer id, Date dataHora, String titulo, String descricao, Long lat, Long lon, String foto,
 			Ronda ronda) {
 		super();
 		this.id = id;
@@ -62,11 +62,11 @@ public class Ocorrencia implements Serializable {
 		this.ronda = ronda;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}   
 	public Date getDataHora() {
