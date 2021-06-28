@@ -119,6 +119,7 @@ public class OcorrenciaServlet extends HttpServlet {
 	
 	private void gravarFoto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = JpaUtil.getEntityManager();
+		// Gravar foto na pasta uploads do sistema de arquivos
 		try {
 			em = JpaUtil.getEntityManager();
 			em.getTransaction().begin();
@@ -130,7 +131,9 @@ public class OcorrenciaServlet extends HttpServlet {
 				String caminho = getServletConfig().getServletContext().getRealPath("/") + "Privada/uploads";
 				// copiar arquivo de upload para a pasta
 				Upload.copiarArquivo((HttpServletMultipartRequest) request, "foto", caminho, nomeArquivo);
-				}
+			}
+			// Colocar foto no banco de dados
+			o.setFoto(Upload.getBytesArquivo((HttpServletMultipartRequest) request, "foto"));
 			em.merge(o);
 			em.getTransaction().commit();	
 		} catch (Exception e) {
@@ -173,7 +176,6 @@ public class OcorrenciaServlet extends HttpServlet {
 					request.getParameter("descricao"),
 					Long.parseLong(request.getParameter("lat")),
 					Long.parseLong(request.getParameter("lon")),
-					request.getParameter("foto"),
 					ronda);
 			return o;
 		}

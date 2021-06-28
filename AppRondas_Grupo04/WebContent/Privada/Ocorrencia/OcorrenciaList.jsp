@@ -42,8 +42,8 @@
 						    <td>
 						    <div id="areaImagem">
 								<img name="imagem" id="imagem" width="64" height="64"
-									src="../uploads/foto${o.id}.jpg" />
-							</div><button name="alterarFoto" value="${o.id}" id="inserirFoto"> Inserir foto</button></td>
+									src="data:image/jpg;base64,${o.fotoBase64}" />
+							</div><button value="${o.id}" name="alterarFoto" id="inserirFoto"> Inserir foto</button></td>
 						    <td>${o.ronda.id} - ${o.ronda.locomocao.descricao} - <fmt:formatDate value="${o.ronda.dataHoraInicio}" pattern="dd/MM/yyyy HH:mm"/> </td>
 					    	<td><button name="alterar" value="${o.id}">
 							<i class="fas fa-hammer"></i> Alterar

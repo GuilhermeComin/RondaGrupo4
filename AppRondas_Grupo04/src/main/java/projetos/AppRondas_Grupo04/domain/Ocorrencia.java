@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Float;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Base64;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -37,8 +38,8 @@ public class Ocorrencia implements Serializable {
 	@Column(length = 40, nullable = false)
 	private Long lon;
 	
-	@Column(length = 100)
-	private String foto;
+	@Lob
+	private byte[] foto;
 	
 	@ManyToOne(optional =  false)
 	private Ronda ronda;
@@ -49,7 +50,7 @@ public class Ocorrencia implements Serializable {
 	}   
 	
 
-	public Ocorrencia(Integer id, Date dataHora, String titulo, String descricao, Long lat, Long lon, String foto,
+	public Ocorrencia(Integer id, Date dataHora, String titulo, String descricao, Long lat, Long lon,
 			Ronda ronda) {
 		super();
 		this.id = id;
@@ -58,7 +59,6 @@ public class Ocorrencia implements Serializable {
 		this.descricao = descricao;
 		this.lat = lat;
 		this.lon = lon;
-		this.foto = foto;
 		this.ronda = ronda;
 	}
 
@@ -104,12 +104,19 @@ public class Ocorrencia implements Serializable {
 	public void setLon(Long lon) {
 		this.lon = lon;
 	}   
-	public String getFoto() {
+	public byte[] getFoto() {
 		return this.foto;
 	}
 
-	public void setFoto(String foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
+	}
+	
+	public String getFotoBase64() {
+		if (foto != null)
+			return new String(Base64.getEncoder().encode(foto));
+		else 
+			return "";
 	}
 
 	public Ronda getRonda() {

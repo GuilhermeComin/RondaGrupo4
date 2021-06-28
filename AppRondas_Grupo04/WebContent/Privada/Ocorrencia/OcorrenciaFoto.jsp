@@ -29,7 +29,7 @@
 					<input type="file" id="foto" name="foto"/><br>
 					<div id="areaImagem">
 						<img name="imagem" id="imagem" width="200" height="200"
-							src="../uploads/foto${o.id}.jpg" />
+							src="data:image/jpg;base64,${o.fotoBase64}" />
 					</div>
 				</div>
 			</div>
