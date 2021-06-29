@@ -83,7 +83,7 @@ public class OcorrenciaServlet extends HttpServlet {
 		Integer id = Integer.parseInt(request.getParameter("alterar"));
 		EntityManager em = JpaUtil.getEntityManager();
 		Ocorrencia o = em.find(Ocorrencia.class, id);
-		List<Ronda> rondas = em.createQuery("from Ocorrencia").getResultList();
+		List<Ronda> rondas = em.createQuery("from Ronda").getResultList();
 		em.close();
 		request.setAttribute("o", o);
 		request.setAttribute("rondas", rondas);

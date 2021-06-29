@@ -64,9 +64,9 @@
 				<select name="ronda" id="ronda" class="custom-select">
 					<option value="" disabled selected > Selecione a ronda
 					<c:forEach items="${rondas}" var="r" varStatus="index">
-						<option value="${r.id}">${r.id}
+						<option value="${r.id}">${r.id} - ${r.locomocao.descricao}
 							-
-							<fmt:formatDate value="${ronda.dataHoraInicio}"
+							<fmt:formatDate value="${r.dataHoraInicio}"
 								pattern="dd/MM/yyyy HH:mm" /></option>
 					</c:forEach>
 				</select>
